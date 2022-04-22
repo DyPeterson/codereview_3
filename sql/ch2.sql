@@ -57,3 +57,13 @@ WHERE inventory_id IN (
     WHERE
         version > 1)
 LIMIT 10;
+
+-- Aliasing the sets table as 's', select the year and name of the values in that table that include the substring
+-- 'Batman'. Concatenate three exclamation marks to the end of each name, and make all the names upper case.
+SELECT
+	s.name,
+    s.year,
+    UPPER(CONCAT(s.name, '!!!')) AS loud_names
+FROM sets AS s
+WHERE
+	s.name REGEXP 'Batman';
