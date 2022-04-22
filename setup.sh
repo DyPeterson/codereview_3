@@ -8,7 +8,7 @@ python3.7 -m pip install --upgrade pip setuptools wheel virtualenv
 
 # create and run a python3.7 virtual env
 python3.7 -m venv ch2e1_venv
-source ch2e1_venv/bin/activate
+source venv/bin/activate
 
 # install/upgrade pip
 python3.7 -m pip install --upgrade pip setuptools wheel
