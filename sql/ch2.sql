@@ -19,3 +19,28 @@ FROM
 WHERE
 	name REGEXP 'Showdown' AND
     year REGEXP '(199[0-9]|20[0-1][0-5])';
+
+-- Aliasing the part_categories table as p, show the id and name of the values in that table where the name includes the word 'Bricks'
+SELECT
+    p.id, 
+    p.name
+FROM
+    part_categories AS p
+WHERE
+    name REGEXP 'Bricks';
+    
+-- Select all the ids from the themes table where the name is in 'Pirates' or 'Star Wars'. This is your subquery.
+-- Then show the names of all the sets where the theme_id matches an id in that subquery.
+SELECT
+	name AS set_name,
+    theme_id
+FROM
+	sets
+WHERE
+	theme_id IN (
+SELECT
+	id
+FROM
+	themes
+WHERE
+	name IN ('Pirates','Star Wars'));    
