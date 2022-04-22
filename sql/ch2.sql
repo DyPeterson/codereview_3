@@ -67,7 +67,7 @@ SELECT
 FROM sets AS s
 WHERE
 	s.name REGEXP 'Batman';
-    
+
 -- For every quantity value greater than 1 in the inventory_parts table, double the value of the quantity. 
 -- Limit your output to 20 rows, and order it by quantity.
 SELECT 
@@ -77,3 +77,15 @@ FROM inventory_parts
 WHERE quantity > 1
 ORDER BY quantity
 LIMIT 20;
+
+-- Selecting from the sets table:
+-- Select the name and year column. 
+-- Construct an additional column in your SELECT clause using the MySQL MAKEDATE() function.
+-- This column's value should be a date corresponding to January 1st of the year.
+-- Hint: You should use the year column and day 1 with MAKEDATE(). Read the MySQL documentation for MAKEDATE().
+SELECT
+	name,
+    year,
+    MAKEDATE(year, 1) AS make_date
+FROM
+	sets;
