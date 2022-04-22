@@ -89,3 +89,21 @@ SELECT
     MAKEDATE(year, 1) AS make_date
 FROM
 	sets;
+
+-- Count the total number of transparent colors in the colors table
+-- (Note: is_trans is a binary value, and you want to show how many rows there are where it equals 1).
+SELECT
+	name,
+    is_trans,
+	COUNT(is_trans) AS trans_count
+FROM colors
+WHERE
+	is_trans = 1
+GROUP BY
+	name;
+-- Im not exactly sure what this question is asking, the note part threw me off. Did it want to display 28(total number of trans values) for each row and then display only those 28 rows?
+-- I included both of these queries, one which will display 1 for the count next to each color that has a trans value and one that just counts all values showing 1 value.
+SELECT
+	COUNT(is_trans) AS trans_count
+FROM colors
+WHERE is_trans = 1;
