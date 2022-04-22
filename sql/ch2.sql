@@ -137,3 +137,35 @@ SELECT
 FROM
 	sets
 GROUP BY theme_id;
+
+-- Perform left, right, and inner joins on the colors and inventory_parts tables,
+-- where the color id matches the inventory_parts color id. 
+-- Note many rows each join returns. 
+-- Write a brief comment in your SQL file under these code blocks explaining what the difference in rows tells you.
+SELECT *
+FROM
+	colors AS c
+LEFT JOIN
+	inventory_parts AS pc
+ON
+	c.id = pc.color_id;
+-- Left Join: This join has the most rows of the 3, It added an additonal rows because they're was additonal data matches from the colors table.
+-- 582,255 Rows
+SELECT *
+FROM
+	colors AS c
+RIGHT JOIN
+	inventory_parts AS pc
+ON
+	c.id = pc.color_id;
+-- Right join: 4 Less rows than the left join. But exact same amount as inventory_parts table. So each value had a match and no data was not displayed.
+-- 580,251 Rows
+SELECT *
+FROM
+	colors AS c
+INNER JOIN
+	inventory_parts AS pc
+ON
+	c.id = pc.color_id;
+-- Inner join: Same thing here, each value has a match and no data from either table is dropped.
+-- 580,251 Rows
