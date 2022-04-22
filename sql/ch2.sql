@@ -67,3 +67,13 @@ SELECT
 FROM sets AS s
 WHERE
 	s.name REGEXP 'Batman';
+    
+-- For every quantity value greater than 1 in the inventory_parts table, double the value of the quantity. 
+-- Limit your output to 20 rows, and order it by quantity.
+SELECT 
+	*,
+	quantity * 2 AS double_quantity
+FROM inventory_parts
+WHERE quantity > 1
+ORDER BY quantity
+LIMIT 20;
