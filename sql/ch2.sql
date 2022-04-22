@@ -107,3 +107,33 @@ SELECT
 	COUNT(is_trans) AS trans_count
 FROM colors
 WHERE is_trans = 1;
+
+-- Show the sum of all the parts for all the sets that came out since the year 2000.
+SELECT
+	year,
+    SUM(num_parts) AS total_parts
+FROM
+	sets
+WHERE
+	year >= 2000
+GROUP BY
+	year;
+
+-- Show the average number of parts for sets that came out since the year 2000.
+SELECT
+	year,
+    AVG(num_parts) AS average_parts
+FROM
+	sets
+WHERE
+	year >= 2000
+GROUP BY
+	year;
+
+-- Using GROUP BY, show the average number of parts for each theme_id in sets.
+SELECT
+	theme_id,
+    AVG(num_parts) AS average_parts
+FROM
+	sets
+GROUP BY theme_id;
