@@ -137,6 +137,28 @@ SELECT
 FROM
 	sets
 GROUP BY theme_id;
+-- Using a free-form join (where the JOIN type isn't specified, equivalent to an inner join), 
+-- join the parts and part_categories tables. Filter for values where the part_categories id matches the parts partcatid,
+-- and where the name of the part contains the word 'Werewolf'.
+SELECT *
+FROM
+	parts
+JOIN
+	part_categories
+ON
+	parts.part_cat_id = part_categories.id
+WHERE
+	parts.name REGEXP 'Werewolf';
+-- Repeat the query above, but this time write it explicitly using INNER JOIN, and alias parts as 'p' and part_categories as 'pc'.
+SELECT *
+FROM
+	parts AS p
+INNER JOIN
+	part_categories AS pc
+ON
+	p.part_cat_id = pc.id
+WHERE
+	p.name REGEXP 'Werewolf';
 
 -- Perform left, right, and inner joins on the colors and inventory_parts tables,
 -- where the color id matches the inventory_parts color id. 
